@@ -29,18 +29,16 @@ describe('OOPack', () => {
     });
 
     describe('output()', () => {
-        it('properly set the output path from a relative path with a leading period', () => {
+        it('properly set the output path and filename', () => {
 
-            instance.output('./public/js/bundle.js');
+            instance.output(`${__dirname}/public/js/bundle.js`);
 
-            expect(instance.config.output).toEqual({ path: `${parentDirectory}/public/js`, filename: 'bundle.js' });
+            expect(instance.config.output).toEqual({ path: `${__dirname}/public/js`, filename: 'bundle.js' });
         });
 
-        it('properly set the output path from a relative path without a leading period', () => {
-
-            instance.output('public/js/bundle.js');
-
-            expect(instance.config.output).toEqual({ path: `${parentDirectory}/public/js`, filename: 'bundle.js' });
+        it('should work in the same folder', () => {
+            instance.output(`${__dirname}/bundle.js`);
+            expect(instance.config.output).toEqual({ path: `${__dirname}`, filename: 'bundle.js' });
         });
     });
 

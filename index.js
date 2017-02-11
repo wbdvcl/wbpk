@@ -48,12 +48,9 @@ export default class OOPack {
 
         let split = output.split('/');
 
-        // If user passes in './public/etc/' remove the leading period
-        if (split[0] === '.') {
-            split.splice(0, 1);
-        }
-
-        this.config.output.path = `${__dirname}/${split.slice().splice(0, split.length - 1).join('/')}`;
+        // Need the path without the ending filename
+        this.config.output.path = `${split.slice().splice(0, split.length - 1).join('/')}`;
+        // Ending filename will just be the last of the split
         this.config.output.filename = split[split.length - 1];
 
         return this;
@@ -68,6 +65,28 @@ export default class OOPack {
         this.config.module.loaders = loaders;
 
         return this;
+    }
+
+    /**
+     * Keeps an open webpack watch process
+     */
+    watch(opts = {}) {
+        let compiler = webpack(this.config);
+
+        compiler.watch(opts, (err, stats) => {
+
+        });
+    }
+
+    /**
+     * Runs the webpack command once
+     */
+    run() {
+        let compiler = webpack(this.config);
+
+        compiler.run((err, stats) => {
+            console.log(err, stats); 
+        });
     }
 
     /**
