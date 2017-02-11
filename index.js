@@ -2,23 +2,47 @@ import webpack from 'webpack'
 
 export default class OOPack {
 
-    constructor(config) {
-        
-        if (config && typeof config === 'object') {
-            this.config = config;
-        } else {
-            this.config = {};
-        }
+    constructor() {
+        this.config = {};
 
         return this;
     }
 
+    /**
+     * Loads an existing webpack config
+     * @param string|object config
+     * @return OOPack
+     */
+    load(config) {
+        let configObj = null;
+
+        if (typeof config === 'string') {
+            configObj = require(config);
+        } else if (typeof config === 'object') {
+            configObj = config;
+        } else {
+            throw 'Invalid parameter passed to config. Parameter should either be webpack config object or path to webpack config.';
+        }
+
+        this.config = { ...this.config, ...configObj };
+
+        return this;
+    }
+
+    /**
+     * @param string|array entry
+     * @return OOPack
+     */
     entry(entry) {
         this.config.entry = entry;
 
         return this;
     }
 
+    /**
+     * @param string output
+     * @return OOPack
+     */
     output(output) {
         this.config.output = this.preserve(this.config.output);
 
@@ -35,6 +59,9 @@ export default class OOPack {
         return this;
     }
 
+    /**
+     * @param string[] loaders
+     */
     loaders(loaders) {
         this.config.module = this.preserve(this.config.module);
 

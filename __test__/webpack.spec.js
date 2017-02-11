@@ -83,4 +83,36 @@ describe('OOPack', () => {
             expect(value).toEqual(true);
         });
     });
+
+    describe('load()', () => {
+        it('should set a plain object config', () => {
+            let config = {
+                entry: './app.js',
+                output: './public/bundle.js'
+            };
+
+            instance.load(config);
+
+            expect(instance.config).toEqual(config);
+        });
+
+        it('should preserve old values', () => {
+            let config = {
+                entry: './app.js'
+            };
+
+            instance.output('./public/js/bundle.js').load(config);
+
+            expect(instance.config.output.filename).toEqual('bundle.js');
+        });
+
+        it('should load a webpack config file', () => {
+
+            let config = require('./mocks/webpack.config.mock.js');
+
+            instance.load('./__test__/mocks/webpack.config.mock.js');
+
+            expect(instance.config).toEqual(config);
+        });
+    });
 });
