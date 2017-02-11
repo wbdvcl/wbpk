@@ -2,9 +2,13 @@ import webpack from 'webpack'
 
 export default class OOPack {
 
-    constructor() {
+    constructor(config) {
         
-        this.config = {};
+        if (config && typeof config === 'object') {
+            this.config = config;
+        } else {
+            this.config = {};
+        }
 
         return this;
     }
@@ -16,6 +20,7 @@ export default class OOPack {
     }
 
     output(output) {
+        this.config.output = this.preserve(this.config.output);
 
         let split = output.split('/');
 
@@ -24,20 +29,28 @@ export default class OOPack {
             split.splice(0, 1);
         }
 
-        this.config.output = {
-            path: `${__dirname}/${split.slice().splice(0, split.length - 1).join('/')}`,
-            filename: split[split.length - 1]
-        };
+        this.config.output.path = `${__dirname}/${split.slice().splice(0, split.length - 1).join('/')}`;
+        this.config.output.filename = split[split.length - 1];
 
         return this;
     }
 
     loaders(loaders) {
-        this.config.module = {
-            loaders
-        };
+        this.config.module = this.preserve(this.config.module);
+
+        this.config.module.loaders = loaders;
 
         return this;
+    }
+
+    /**
+     * Preserves an existing value or returns a new default
+     * 
+     * @param mixed def - What you want to default the value to, defaults to an empty object
+     * @return mixed
+     */
+    preserve(prop, def = {}) {
+        return typeof prop !== 'undefined' ? prop : def;
     }
 
 }
