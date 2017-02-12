@@ -6,7 +6,8 @@
     "name": "nehero"
   },
   "scripts": {
-    "prepublish": "babel src/wbpk.js --out-file dist/wbpk.js --presets=es2015 --plugins=transform-object-rest-spread"
+    "build": "babel src/wbpk.js --out-file dist/wbpk.js --presets=es2015 --plugins=transform-object-rest-spread",
+    "prepublish": "npm run build"
   },
   "main": "./dist/wbpk.js",
   "bin": "./cli.js",

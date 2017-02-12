@@ -2,6 +2,16 @@
 
 Use webpack in a more programmatic way.
 
+# Installation
+
+Via `npm`
+
+`npm install --save-dev wbpk`
+
+Via `yarn`
+
+`yarn add wbpk`
+
 # Usage
 
 Create a `wbpk.js` file in your root directory.
@@ -44,7 +54,7 @@ Your files destination. Pass the whole filepath to where you want your build to 
 
 ## `.loaders(loaders: object[]`)
 
-What loaders to use. Right now these should be the same as you would pass to your webpack config. Know of a way to make this more user-friendly? [Submit an issue or pull request]().
+What loaders to use. Right now these should be the same as you would pass to your webpack config. Know of a way to make this more user-friendly? [Submit an issue or pull request](https://github.com/wbdvcl/wbpk/issues).
 
 ## `.run()`
 
@@ -53,3 +63,12 @@ Executes webpack to build based off of your config.
 ## `.watch(opts: object)`
 
 Tells webpack to watch for changes based on your config. All valid webpack `watch` config options can be passed here.
+
+# Contributing
+
+Want a new feature or see something missing from webpack that should be here? Open an [issue](https://github.com/wbdvcl/wbpk/issues) or [submit a pull request](https://github.com/wbdvcl/wbpk/pulls). Make sure all new features have proper tests included with them if submitting a PR.
+
+# Tests
+
+Tests are done using [`jest`](https://facebook.github.io/jest/)
+
