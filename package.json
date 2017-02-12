@@ -5,6 +5,7 @@
   "author": {
     "name": "nehero"
   },
+  "main": "index.js",
   "homepage": "https://github.com/wbdvcl/wbpk",
   "keywords": [
     "webpack", "gulp", "wbpk"
