@@ -5,7 +5,11 @@
   "author": {
     "name": "nehero"
   },
-  "main": "index.js",
+  "scripts": {
+    "prepublish": "babel src/wbpk.js --out-file dist/wbpk.js --presets=es2015 --plugins=transform-object-rest-spread"
+  },
+  "main": "./dist/wbpk.js",
+  "bin": "./cli.js",
   "homepage": "https://github.com/wbdvcl/wbpk",
   "keywords": [
     "webpack",

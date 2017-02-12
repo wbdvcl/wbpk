@@ -1,4 +1,4 @@
-import wbpk from '../index'
+import wbpk from '../src/wbpk'
 
 const parentDirectory = (__dirname).split('/__test__')[0];
 
@@ -108,7 +108,7 @@ describe('wbpk', () => {
 
             let config = require('./mocks/webpack.config.mock.js');
 
-            instance.load('./__test__/mocks/webpack.config.mock.js');
+            instance.load(__dirname + '/mocks/webpack.config.mock.js');
 
             expect(instance.config).toEqual(config);
         });

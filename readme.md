@@ -1,6 +1,6 @@
 # WBPK
 
-Use webpack in a more programatic way.
+Use webpack in a more programmatic way.
 
 # Usage
 
@@ -8,13 +8,13 @@ Create a `wbpk.js` file in your root directory.
 
 ```js
 // wbpk.js
-import wbpk from 'wbpk';
+var wbpk = require('wbpk').default;
 
-const wbpk = new wbpk();
+var instance = new wbpk();
 
-wbpk
-.entry(`${__dirname}/src/app.js`)
-.output(`${__dirname}/dist/bundle.js`)
+instance
+.entry(__dirname + '/src/app.js')
+.output(__dirname + '/dist/bundle.js')
 .loaders([
     {
         test: /\.js$/,
