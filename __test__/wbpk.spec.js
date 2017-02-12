@@ -1,4 +1,4 @@
-import OOPack from '../index'
+import wbpk from '../index'
 
 const parentDirectory = (__dirname).split('/__test__')[0];
 
@@ -6,10 +6,10 @@ let instance = null;
 
 // Reset the instance before each test run
 beforeEach(() => {
-    instance = new OOPack();
+    instance = new wbpk();
 });
 
-describe('OOPack', () => {
+describe('wbpk', () => {
 
     describe('entry()', () => {
         it('should set the entry path as a string', () => {

@@ -1,6 +1,6 @@
 import webpack from 'webpack'
 
-export default class OOPack {
+export default class wbpk {
 
     constructor() {
         this.config = {};
@@ -11,7 +11,7 @@ export default class OOPack {
     /**
      * Loads an existing webpack config
      * @param string|object config
-     * @return OOPack
+     * @return wbpk
      */
     load(config) {
         let configObj = null;
@@ -31,7 +31,7 @@ export default class OOPack {
 
     /**
      * @param string|array entry
-     * @return OOPack
+     * @return wbpk
      */
     entry(entry) {
         this.config.entry = entry;
@@ -41,7 +41,7 @@ export default class OOPack {
 
     /**
      * @param string output
-     * @return OOPack
+     * @return wbpk
      */
     output(output) {
         this.config.output = this.preserve(this.config.output);

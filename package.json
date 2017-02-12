@@ -1,4 +1,18 @@
 {
+  "name": "wbpk",
+  "version": "0.0.1",
+  "description": "Programmatic interface to webpack similar to Gulp",
+  "author": {
+    "name": "nehero"
+  },
+  "homepage": "https://github.com/wbdvcl/wbpk",
+  "keywords": [
+    "webpack", "gulp", "wbpk"
+  ],
+  "bugs": {
+    "url" : "https://github.com/wbdvcl/wbpk/issues"
+  },
+  "license": "GPL-3.0",
   "dependencies": {
     "babel-jest": "^18.0.0",
     "babel-plugin-transform-object-rest-spread": "^6.22.0",
