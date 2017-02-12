@@ -1,6 +1,6 @@
 {
   "name": "wbpk",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Programmatic interface to webpack similar to Gulp",
   "author": {
     "name": "nehero"
@@ -8,10 +8,12 @@
   "main": "index.js",
   "homepage": "https://github.com/wbdvcl/wbpk",
   "keywords": [
-    "webpack", "gulp", "wbpk"
+    "webpack",
+    "gulp",
+    "wbpk"
   ],
   "bugs": {
-    "url" : "https://github.com/wbdvcl/wbpk/issues"
+    "url": "https://github.com/wbdvcl/wbpk/issues"
   },
   "license": "GPL-3.0",
   "dependencies": {
