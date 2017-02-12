@@ -13,6 +13,8 @@ var wbpk = require('wbpk').default;
 var instance = new wbpk();
 
 instance
+.load('./webpack.config.js') // load an optional preconfigured config file
+.load({}) // can also pass in plain js object
 .entry(__dirname + '/src/app.js')
 .output(__dirname + '/dist/bundle.js')
 .loaders([
@@ -28,9 +30,9 @@ Then run `wbpk` to build / watch.
 
 # API
 
-## `.config(config: object|string)`
+## `.load(config: object|string)`
 
-Load a pre-exisitng webpack config. Can be an object or a path to a `webpack.config.js`.
+Optional. Load a pre-existing webpack config. Can be an object or a path to a `webpack.config.js`. Config gets merged with any existing options loaded via `wbpk` methods.
 
 ## `.entry(path: string|array)`
 
