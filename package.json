@@ -1,6 +1,6 @@
 {
   "name": "wbpk",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Programmatic interface to webpack similar to Gulp",
   "author": {
     "name": "nehero"
